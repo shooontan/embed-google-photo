@@ -3,3 +3,9 @@
 
 # bundle
 /dist
+
+# flow
+/flow-typed/npm/
+
+# yarn
+yarn-error.log

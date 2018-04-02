@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form Component 1`] = `
+<input
+  onChange={[Function]}
+  value=""
+/>
+`;
+
+exports[`Form Component 2`] = `
+<input
+  onChange={[Function]}
+  value="test form"
+/>
+`;
