@@ -1,0 +1,27 @@
+{
+  "presets": [
+    "react",
+    "flow",
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": "last 2 versions"
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    "react-hot-loader/babel",
+    "transform-class-properties",
+    [
+      "transform-runtime",
+      {
+        "helpers": false,
+        "polyfill": false,
+        "regenerator": true,
+        "moduleName": "babel-runtime"
+      }
+    ]
+  ]
+}
