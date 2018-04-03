@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (env, argv) => {
   let isProduct = false;
@@ -38,6 +39,11 @@ module.exports = (env, argv) => {
     template: './src/html/index.html',
   }));
 
+  plugins.push(new MiniCssExtractPlugin({
+    filename: '[contenthash].[name].css',
+    chunkFilename: '[id].css',
+  }));
+
   return Object.assign({}, config, {
     devtool: isProduct ? false : 'source-map',
     module: {
@@ -50,6 +56,10 @@ module.exports = (env, argv) => {
         {
           test: /\.html$/,
           loader: 'html-loader',
+        },
+        {
+          test: /\.s?css$/,
+          use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
         },
       ],
     },

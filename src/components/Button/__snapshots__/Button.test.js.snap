@@ -1,7 +1,57 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button 1`] = `
+.c0 {
+  display: inline-block;
+  position: relative;
+  padding: 0.75em 1.75em;
+  margin: 10px;
+  background: linear-gradient(to right,#ffa013,#ffc61a);
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 2;
+}
+
+.c0:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  bottom: -6px;
+  left: 5%;
+  height: 110%;
+  width: 90%;
+  opacity: 0.8;
+  border-radius: 50px;
+  background: linear-gradient(to right,#ffa013,#ffc61a);
+  -webkit-filter: blur(6px);
+  filter: blur(6px);
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.c0:hover:after {
+  -webkit-filter: blur(4px);
+  filter: blur(4px);
+  width: 100%;
+  bottom: -3px;
+  left: 0;
+}
+
+.c0:hover:active::after {
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+}
+
 <button
+  className="c0"
   onClick={[Function]}
 >
   button
@@ -9,7 +59,57 @@ exports[`Button 1`] = `
 `;
 
 exports[`Button 2`] = `
+.c0 {
+  display: inline-block;
+  position: relative;
+  padding: 0.75em 1.75em;
+  margin: 10px;
+  background: linear-gradient(to right,#ffa013,#ffc61a);
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 2;
+}
+
+.c0:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  bottom: -6px;
+  left: 5%;
+  height: 110%;
+  width: 90%;
+  opacity: 0.8;
+  border-radius: 50px;
+  background: linear-gradient(to right,#ffa013,#ffc61a);
+  -webkit-filter: blur(6px);
+  filter: blur(6px);
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.c0:hover:after {
+  -webkit-filter: blur(4px);
+  filter: blur(4px);
+  width: 100%;
+  bottom: -3px;
+  left: 0;
+}
+
+.c0:hover:active::after {
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+}
+
 <button
+  className="c0"
   onClick={[Function]}
 >
   Submit!!!
