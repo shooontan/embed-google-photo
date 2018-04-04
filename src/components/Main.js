@@ -5,20 +5,30 @@ import onClick from '../actions/onClick';
 import Button from './Button';
 import Form from './Form';
 import Loading from './Loading';
+import Message from './Message';
 import ListItems from './ListItems';
 import type { Props as Result } from './ListItems/ListItems';
 
 type Props = {
   value: string,
   loading: boolean,
+  message: string,
   results: Array<Result>,
   updateValue: Function,
   setLoadingState: Function,
   addResult: Function,
+  setMessage: Function,
 };
 
 const Main = ({
-  value, loading, results, updateValue, setLoadingState, addResult,
+  value,
+  loading,
+  message,
+  results,
+  updateValue,
+  setLoadingState,
+  addResult,
+  setMessage,
 }: Props) => {
   // reverse result array
   const reversedResults = results.slice().reverse();
@@ -35,14 +45,23 @@ const Main = ({
           />
         </FormWrapper>
         <Button
-          title="get"
+          title="Get"
           onClick={async () => {
             if (!value) {
+              setMessage('');
+              return;
+            }
+
+            // google photo url validation
+            if (!value || !/\.\S+?\/\S+?/.test(value)) {
+              setMessage(`「${value}」is invalid url`);
               return;
             }
 
             setLoadingState(true);
+
             try {
+              // get google photo embed url
               const imgUrl = await onClick(value);
               addResult({
                 url: imgUrl,
@@ -50,7 +69,8 @@ const Main = ({
                 error: false,
                 errorMessage: '',
               });
-              updateValue('');
+
+              setMessage('');
             } catch (err) {
               addResult({
                 url: '',
@@ -59,11 +79,14 @@ const Main = ({
                 errorMessage: 'error',
               });
             } finally {
+              // reset
+              updateValue('');
               setLoadingState(false);
             }
           }}
         />
       </MainInner>
+      <Message message={message} />
       <ResultsWrapper>
         <Loading loading={loading} />
         <ListItems items={reversedResults} />
@@ -92,6 +115,7 @@ const FormWrapper = styled.div`
 const ResultsWrapper = styled.div`
   max-width: 900px;
   margin: 0 auto;
+  padding: 40px 0;
 `;
 
 export default Main;

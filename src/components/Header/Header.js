@@ -16,7 +16,6 @@ const Header = () => (
 const HeaderWrapper = styled.header``;
 
 const HeaderImage = styled.div`
-  position: relative;
   & img {
     max-width: 100%;
 

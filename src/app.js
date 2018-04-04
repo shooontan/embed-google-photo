@@ -9,6 +9,7 @@ import type { Props as Result } from './components/ListItems/ListItems';
 const Enhance = compose(
   withState('value', 'updateValue', ''),
   withState('loading', 'setLoadingState', false),
+  withState('message', 'setMessage', ''),
   withState('results', 'updateResults', []),
   withHandlers({
     addResult: ({ updateResults }) => (data) => {
@@ -23,10 +24,12 @@ const Enhance = compose(
 type Props = {
   value: string,
   loading: boolean,
+  message: string,
   results: Array<Result>,
   updateValue: Function,
   setLoadingState: Function,
   addResult: Function,
+  setMessage: Function,
 };
 
 const App = (props: Props) => (

@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form Component 1`] = `null`;
+
+exports[`Form Component 2`] = `
+.c0 {
+  width: 100%;
+  margin-top: -1em;
+  text-align: center;
+}
+
+.c0 p {
+  display: inline-block;
+  margin: 0;
+  padding: 1em;
+  background: #333;
+  color: #fafafa;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+<div
+  className="c0"
+>
+  <p>
+    this is Message Component Text
+  </p>
+</div>
+`;
