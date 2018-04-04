@@ -1,4 +1,3 @@
-// @flow
 import * as gpp from './index';
 
 const url = 'https://lh3.googleusercontent.com/abc';

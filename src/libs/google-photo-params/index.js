@@ -41,7 +41,7 @@ export const splitUrl = (url: string) => {
  * out
  * { w: 600, h: 315, p: '', k: '' }
  */
-export const parseParams = (params: [string]): { [string]: string | number } => {
+export const parseParams = (params: Array<string>): { [string]: string | number } => {
   const urlParams = {};
 
   params.forEach((item) => {

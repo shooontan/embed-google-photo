@@ -6,7 +6,7 @@ import Button from './Button';
 import Form from './Form';
 import Loading from './Loading';
 import ListItems from './ListItems';
-import type { Props as Result } from './ListItems';
+import type { Props as Result } from './ListItems/ListItems';
 
 type Props = {
   value: string,

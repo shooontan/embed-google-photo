@@ -1,6 +1,6 @@
 // @flow
 import { getQuery } from '../libs/axios';
-// import urlParameter from '../libs/urlParameter';
+import * as gpp from '../libs/google-photo-params';
 
 const onClick = async (value: string) => {
   const data = await getQuery(value);
@@ -20,11 +20,9 @@ const onClick = async (value: string) => {
     return '';
   });
 
-  // const params = urlParameter(ogImageUrls[0]);
-
-  const imageUrl = `${ogImageUrls[0].replace(/=\S+$/, '')}`;
-
-  return imageUrl;
+  // return original url without params
+  const { url } = gpp.splitUrl(ogImageUrls[0]);
+  return url;
 };
 
 export default onClick;

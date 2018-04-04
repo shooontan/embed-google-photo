@@ -4,7 +4,7 @@ import { hot } from 'react-hot-loader';
 import { compose, withState, withHandlers } from 'recompose';
 import Main from './components/Main';
 import Header from './components/Header';
-import type { Props as Result } from './components/ListItems';
+import type { Props as Result } from './components/ListItems/ListItems';
 
 const Enhance = compose(
   withState('value', 'updateValue', ''),

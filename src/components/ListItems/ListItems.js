@@ -3,6 +3,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Error from '../Error';
+import ImageBox from './ImageBox';
 
 export type Props = {
   url: string,
@@ -15,15 +16,10 @@ export const ListItem = (props: Props) => {
   const {
     url, originalUrl, error, errorMessage,
   } = props;
+
   return (
     <StyledListItem>
-      <ImgBox>
-        {url && (
-          <a href={url} target="_blank">
-            <img src={url} alt={url} width={150} height="auto" />
-          </a>
-        )}
-      </ImgBox>
+      <ImageBox url={url} />
       <DetailBox>
         <p>{originalUrl}</p>
         <EmbedUrl>{url}</EmbedUrl>
@@ -44,17 +40,6 @@ const StyledListItem = styled.div`
 
   &:last-child {
     margin: 0;
-  }
-`;
-
-const ImgBox = styled.div`
-  width: 140px;
-  margin-right: 8px;
-
-  img {
-    max-width: 100%;
-    height: auto;
-    box-shadow: 1px 1px 9px 1px rgba(0, 0, 0, 0.1);
   }
 `;
 
