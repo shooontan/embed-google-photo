@@ -45,6 +45,7 @@
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.1.0",
     "jest": "^22.4.3",
+    "jest-extended": "^0.6.0",
     "jest-styled-components": "^5.0.1",
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.8.3",
@@ -56,10 +57,5 @@
     "webpack": "^4.4.1",
     "webpack-cli": "^2.0.13",
     "webpack-dev-server": "^3.1.1"
-  },
-  "jest": {
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ]
   }
 }
