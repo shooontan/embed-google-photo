@@ -28,21 +28,23 @@ module.exports = (env, argv) => {
     };
   }
 
-  const plugins = [];
+  let plugins = [];
 
   if (isProduct) {
     plugins.push(new CleanWebpackPlugin(['dist']));
   }
 
-  plugins.push(new HtmlWebpackPlugin({
-    title: 'React App Template',
-    template: './src/html/index.html',
-  }));
-
-  plugins.push(new MiniCssExtractPlugin({
-    filename: '[contenthash].[name].css',
-    chunkFilename: '[id].css',
-  }));
+  plugins = [
+    ...plugins,
+    new HtmlWebpackPlugin({
+      title: 'Embed Google Photo',
+      template: './src/html/index.ejs',
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[contenthash].style.css',
+      chunkFilename: '[id].css',
+    }),
+  ];
 
   return Object.assign({}, config, {
     devtool: isProduct ? false : 'source-map',

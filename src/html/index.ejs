@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+  </head>
+  <body>
+    <div id="app">
+      <%
+        require('babel-register');
+        const React = require('react')
+        const ReactDOM = require('react-dom/server');
+        const App = require('../app').default;
+      %>
+      <%= ReactDOM.renderToString(React.createElement(App)) %>
+    </div>
+  </body>
+</html>
