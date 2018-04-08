@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Message Component 1`] = `null`;
+
+exports[`Message Component 2`] = `
+.c0 {
+  width: 100%;
+  text-align: center;
+}
+
+.c0 p {
+  display: inline-block;
+  margin: 0;
+  padding: 1em;
+  background: #333;
+  color: #fafafa;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+<div
+  className="c0"
+>
+  <p>
+    this is Message Component Text
+  </p>
+</div>
+`;

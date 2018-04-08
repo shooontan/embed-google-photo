@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+  </head>
+  <body>
+    <div id="app">
+      <%
+        require('babel-register');
+        const React = require('react')
+        const renderToString = require('react-dom/server').renderToString;
+        const ServerStyleSheet = require('styled-components').ServerStyleSheet;
+
+        const App = require('../app').default;
+        const sheet = new ServerStyleSheet();
+        const styledContent = sheet.collectStyles(React.createElement(App));
+        const renderContent = renderToString(styledContent);
+        const styleTags = sheet.getStyleTags();
+      %>
+      <%= renderContent %>
+      <%= styleTags %>
+    </div>
+  </body>
+</html>

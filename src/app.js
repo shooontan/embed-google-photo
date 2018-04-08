@@ -4,11 +4,12 @@ import { hot } from 'react-hot-loader';
 import { compose, withState, withHandlers } from 'recompose';
 import Main from './components/Main';
 import Header from './components/Header';
-import type { Props as Result } from './components/ListItems';
+import type { ResultData } from './components/ListItems/ListItems';
 
 const Enhance = compose(
   withState('value', 'updateValue', ''),
   withState('loading', 'setLoadingState', false),
+  withState('message', 'setMessage', ''),
   withState('results', 'updateResults', []),
   withHandlers({
     addResult: ({ updateResults }) => (data) => {
@@ -23,10 +24,12 @@ const Enhance = compose(
 type Props = {
   value: string,
   loading: boolean,
-  results: Array<Result>,
+  message: string,
+  results: Array<ResultData>,
   updateValue: Function,
   setLoadingState: Function,
   addResult: Function,
+  setMessage: Function,
 };
 
 const App = (props: Props) => (
