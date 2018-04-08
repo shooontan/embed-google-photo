@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckBox Component 1`] = `
+<p>
+  <input
+    label=""
+    type="checkbox"
+  />
+  
+</p>
+`;
+
+exports[`CheckBox Component 2`] = `
+<p>
+  <input
+    label="checkbox"
+    type="checkbox"
+  />
+  checkbox
+</p>
+`;

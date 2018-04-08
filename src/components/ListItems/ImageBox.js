@@ -5,19 +5,26 @@ import * as gpp from '../../libs/google-photo-params';
 
 type Props = {
   url: string,
+  buildOpt: { [string]: number | boolean },
 };
 
-const ImageBox = ({ url }: Props) => {
+const ImageBox = ({ url, buildOpt }: Props) => {
   if (!url) {
     return <StyledImgBox />;
   }
 
   const resizeUrl = gpp.buildUrl(url, { w: 140 });
 
+  const linkOpt = Object.assign({}, buildOpt);
+  if (linkOpt.d) {
+    linkOpt.h = true;
+  }
+  const linkUrl = gpp.buildUrl(url, linkOpt);
+
   return (
     <StyledImgBox>
-      <a href={url} target="_blank">
-        <img src={resizeUrl} alt="GooglePhoto-embed-url" width={150} height="auto" />
+      <a href={linkUrl} target="_blank">
+        <img src={resizeUrl} alt="GooglePhoto-embed-url" width={140} height="auto" />
       </a>
     </StyledImgBox>
   );

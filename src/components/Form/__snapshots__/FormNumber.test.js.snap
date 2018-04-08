@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormNumber Component 1`] = `
+<p>
+  <input
+    label=""
+    type="number"
+  />
+  
+</p>
+`;
+
+exports[`FormNumber Component 2`] = `
+<p>
+  <input
+    label="form number"
+    type="number"
+  />
+  form number
+</p>
+`;

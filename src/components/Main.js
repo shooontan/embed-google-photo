@@ -7,13 +7,14 @@ import Form from './Form';
 import Loading from './Loading';
 import Message from './Message';
 import ListItems from './ListItems';
-import type { Props as Result } from './ListItems/ListItems';
+import uid from '../libs/uid';
+import type { ResultData } from './ListItems/ListItems';
 
 type Props = {
   value: string,
   loading: boolean,
   message: string,
-  results: Array<Result>,
+  results: Array<ResultData>,
   updateValue: Function,
   setLoadingState: Function,
   addResult: Function,
@@ -68,6 +69,7 @@ const Main = ({
                 originalUrl: value,
                 error: false,
                 errorMessage: '',
+                uid: uid(),
               });
 
               setMessage('');
@@ -77,6 +79,7 @@ const Main = ({
                 originalUrl: value,
                 error: true,
                 errorMessage: 'error',
+                uid: uid(),
               });
             } finally {
               // reset

@@ -4,7 +4,7 @@ import { hot } from 'react-hot-loader';
 import { compose, withState, withHandlers } from 'recompose';
 import Main from './components/Main';
 import Header from './components/Header';
-import type { Props as Result } from './components/ListItems/ListItems';
+import type { ResultData } from './components/ListItems/ListItems';
 
 const Enhance = compose(
   withState('value', 'updateValue', ''),
@@ -25,7 +25,7 @@ type Props = {
   value: string,
   loading: boolean,
   message: string,
-  results: Array<Result>,
+  results: Array<ResultData>,
   updateValue: Function,
   setLoadingState: Function,
   addResult: Function,

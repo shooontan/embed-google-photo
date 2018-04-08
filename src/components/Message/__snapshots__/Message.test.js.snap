@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Form Component 1`] = `null`;
+exports[`Message Component 1`] = `null`;
 
-exports[`Form Component 2`] = `
+exports[`Message Component 2`] = `
 .c0 {
   width: 100%;
   margin-top: -1em;
