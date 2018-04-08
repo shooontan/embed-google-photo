@@ -33,6 +33,48 @@ const Main = ({
 }: Props) => {
   // reverse result array
   const reversedResults = results.slice().reverse();
+
+  const handleClick = async () => {
+    if (!value) {
+      setMessage('');
+      return;
+    }
+
+    // google photo url validation
+    if (!value || !/\.\S+?\/\S+?/.test(value)) {
+      setMessage(`「${value}」is invalid url`);
+      return;
+    }
+
+    setLoadingState(true);
+
+    try {
+      // get google photo embed url
+      const imgUrl = await onClick(value);
+      addResult({
+        url: imgUrl,
+        originalUrl: value,
+        error: false,
+        errorMessage: '',
+        uid: uid(),
+      });
+
+      setMessage('');
+    } catch (err) {
+      addResult({
+        url: '',
+        originalUrl: value,
+        error: true,
+        errorMessage: 'error',
+        uid: uid(),
+      });
+    } finally {
+      // reset
+      updateValue('');
+      setLoadingState(false);
+    }
+  };
+
   return (
     <StyledMain>
       <MainInner>
@@ -42,50 +84,20 @@ const Main = ({
             onChange={(e) => {
               updateValue(e.target.value);
             }}
+            onKeyPress={async (e) => {
+              const enterCode = 13;
+              if (e.charCode !== enterCode) {
+                return;
+              }
+              await handleClick();
+            }}
             placeholder="https://photos.app.goo.gl/your-share-photo-url"
           />
         </FormWrapper>
         <Button
           title="Get"
           onClick={async () => {
-            if (!value) {
-              setMessage('');
-              return;
-            }
-
-            // google photo url validation
-            if (!value || !/\.\S+?\/\S+?/.test(value)) {
-              setMessage(`「${value}」is invalid url`);
-              return;
-            }
-
-            setLoadingState(true);
-
-            try {
-              // get google photo embed url
-              const imgUrl = await onClick(value);
-              addResult({
-                url: imgUrl,
-                originalUrl: value,
-                error: false,
-                errorMessage: '',
-                uid: uid(),
-              });
-
-              setMessage('');
-            } catch (err) {
-              addResult({
-                url: '',
-                originalUrl: value,
-                error: true,
-                errorMessage: 'error',
-                uid: uid(),
-              });
-            } finally {
-              // reset
-              updateValue('');
-              setLoadingState(false);
-            }
+            await handleClick();
           }}
         />
         <Message message={message} />
