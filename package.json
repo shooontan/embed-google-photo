@@ -1,6 +1,6 @@
 {
-  "name": "google-photo-embed",
-  "version": "0.0.0",
+  "name": "embed-google-photo",
+  "version": "0.0.1",
   "description": "",
   "scripts": {
     "dev": "webpack-dev-server --hot --mode development",
@@ -9,7 +9,7 @@
     "test": "jest",
     "flow-typed": "flow-typed install -s"
   },
-  "author": "",
+  "author": "shooontan",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
