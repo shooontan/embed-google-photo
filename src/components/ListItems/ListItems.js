@@ -74,39 +74,41 @@ export const ListItemComponent = (props: Props) => {
         <p>{originalUrl}</p>
         <EmbedUrl>{buildUrl}</EmbedUrl>
         <Error error={error} message={errorMessage} />
-        <div>
-          <Checkbox
-            label="original"
-            defaultChecked={false}
-            onChange={(e) => {
-              setOriginal(e.target.checked);
-            }}
-          />
-          <Checkbox
-            label="center"
-            defaultChecked={false}
-            disabled={original}
-            onChange={(e) => {
-              setCenter(e.target.checked);
-            }}
-          />
-          <FormNumber
-            label="width"
-            disabled={original}
-            value={width}
-            onChange={(e) => {
-              updateWidth(+e.target.value);
-            }}
-          />
-          <FormNumber
-            label="height"
-            disabled={original}
-            value={height}
-            onChange={(e) => {
-              updateHeight(+e.target.value);
-            }}
-          />
-        </div>
+        {!error && (
+          <div>
+            <Checkbox
+              label="original"
+              defaultChecked={false}
+              onChange={(e) => {
+                setOriginal(e.target.checked);
+              }}
+            />
+            <Checkbox
+              label="center"
+              defaultChecked={false}
+              disabled={original}
+              onChange={(e) => {
+                setCenter(e.target.checked);
+              }}
+            />
+            <FormNumber
+              label="width"
+              disabled={original}
+              value={width}
+              onChange={(e) => {
+                updateWidth(+e.target.value);
+              }}
+            />
+            <FormNumber
+              label="height"
+              disabled={original}
+              value={height}
+              onChange={(e) => {
+                updateHeight(+e.target.value);
+              }}
+            />
+          </div>
+        )}
       </DetailBox>
     </StyledListItem>
   );
@@ -132,6 +134,10 @@ const DetailBox = styled.div`
   flex: 1;
   font-size: 14px;
   word-break: break-all;
+
+  p {
+    margin: 0 0 1em;
+  }
 `;
 
 const EmbedUrl = styled.p``;

@@ -10,7 +10,13 @@ type Props = {
 
 const ImageBox = ({ url, buildOpt }: Props) => {
   if (!url) {
-    return <StyledImgBox />;
+    return (
+      <StyledImgBox
+        style={{
+          background: '#ccc',
+        }}
+      />
+    );
   }
 
   const resizeUrl = gpp.buildUrl(url, { w: 140 });
@@ -33,6 +39,10 @@ const ImageBox = ({ url, buildOpt }: Props) => {
 const StyledImgBox = styled.div`
   width: 140px;
   margin-right: 8px;
+
+  a {
+    display: block;
+  }
 
   img {
     max-width: 100%;

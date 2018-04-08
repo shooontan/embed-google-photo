@@ -88,8 +88,8 @@ const Main = ({
             }
           }}
         />
+        <Message message={message} />
       </MainInner>
-      <Message message={message} />
       <ResultsWrapper>
         <Loading loading={loading} />
         <ListItems items={reversedResults} />
@@ -98,14 +98,27 @@ const Main = ({
   );
 };
 
-const StyledMain = styled.main``;
+const StyledMain = styled.main`
+  margin-top: -150px;
+
+  @media (max-width: 599px) {
+    margin-top: -140px;
+    padding: 0 0.5em;
+  }
+`;
 
 const MainInner = styled.div`
-  position: absolute;
-  top: 200px;
-  left: 0;
+  padding-bottom: 100px;
   width: 100%;
   text-align: center;
+
+  @media (min-width: 600px) and (max-width: 860px) {
+    padding: 0 0.5em 70px;
+  }
+
+  @media (max-width: 599px) {
+    padding: 0 0 40px;
+  }
 `;
 
 const FormWrapper = styled.div`
@@ -118,7 +131,7 @@ const FormWrapper = styled.div`
 const ResultsWrapper = styled.div`
   max-width: 900px;
   margin: 0 auto;
-  padding: 40px 0;
+  padding: 0 0 40px;
 `;
 
 export default Main;

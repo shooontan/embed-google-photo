@@ -16,6 +16,8 @@ const Header = () => (
 const HeaderWrapper = styled.header``;
 
 const HeaderImage = styled.div`
+  overflow: hidden;
+
   & img {
     max-width: 100%;
 
