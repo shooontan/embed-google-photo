@@ -12,10 +12,17 @@
       <%
         require('babel-register');
         const React = require('react')
-        const ReactDOM = require('react-dom/server');
+        const renderToString = require('react-dom/server').renderToString;
+        const ServerStyleSheet = require('styled-components').ServerStyleSheet;
+
         const App = require('../app').default;
+        const sheet = new ServerStyleSheet();
+        const styledContent = sheet.collectStyles(React.createElement(App));
+        const renderContent = renderToString(styledContent);
+        const styleTags = sheet.getStyleTags();
       %>
-      <%= ReactDOM.renderToString(React.createElement(App)) %>
+      <%= renderContent %>
+      <%= styleTags %>
     </div>
   </body>
 </html>

@@ -1,24 +1,48 @@
 // @flow
+/* eslint-disable no-plusplus, no-param-reassign */
 import * as React from 'react';
 import styled from 'styled-components';
+import imgs from './imgs.json';
 
-const Header = () => (
-  <HeaderWrapper>
-    <HeaderImage>
-      <img
-        src="https://lh3.googleusercontent.com/YVH9XLDSBYKL8KYPwywLeU8TvT9_N6X_S0kJ7-emf8Ykd_8J26wgQrID5ZTFZ1uuIshACxUCvw8_HY162KcbId5ekB_MaTuK8zpFzmkpgHLUEPsLPFczuh21yEv9gaZzyZrCO2xlag=w3200"
-        alt="card"
-      />
-    </HeaderImage>
-  </HeaderWrapper>
-);
+const shuffle = (arr: Array<any>) => {
+  let len = arr.length;
+  while (len) {
+    const index = Math.floor(Math.random() * len--);
+    const temp = arr[len];
+    arr[len] = arr[index];
+    arr[index] = temp;
+  }
+  return arr;
+};
 
-const HeaderWrapper = styled.header``;
+const shuffleImages = shuffle(imgs);
+
+const Header = () => {
+  const Imgs = shuffleImages.map(item => <img src={item} alt="header-item" key={item} />);
+
+  return (
+    <HeaderWrapper>
+      <HeaderImage>{Imgs}</HeaderImage>
+    </HeaderWrapper>
+  );
+};
+
+const HeaderWrapper = styled.header`
+  overflow: hidden;
+`;
 
 const HeaderImage = styled.div`
-  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 120%;
+  max-height: 360px;
+  /* filter: blur(0.5px); */
+  background: #333;
+  z-index: -1;
 
   & img {
+    padding: 1px;
     max-width: 100%;
 
     @media (max-width: 800px) {

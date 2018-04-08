@@ -77,6 +77,7 @@ const Main = ({
 
   return (
     <StyledMain>
+      <Headline>Embed Google Photo</Headline>
       <MainInner>
         <FormWrapper>
           <Form
@@ -111,12 +112,18 @@ const Main = ({
 };
 
 const StyledMain = styled.main`
-  margin-top: -150px;
+  margin-top: -240px;
 
   @media (max-width: 599px) {
-    margin-top: -140px;
+    margin-top: -200px;
     padding: 0 0.5em;
   }
+`;
+
+const Headline = styled.h1`
+  color: #fff;
+  text-align: center;
+  text-shadow: 1px 1px 14px #999;
 `;
 
 const MainInner = styled.div`
