@@ -1,7 +1,7 @@
 // @flow
 import axios from 'axios';
 
-const baseApiUrl = 'http://query.yahooapis.com';
+const baseApiUrl = 'https://query.yahooapis.com';
 
 const http = axios.create({
   baseURL: baseApiUrl,
